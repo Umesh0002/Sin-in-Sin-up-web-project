@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Forms</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the background and font */
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+        /* Basic styling for form containers to center them */
+        .form-container-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            padding: 1rem; /* Add some padding for smaller screens */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="form-container-wrapper w-full max-w-md">
+        <div id="login-form" class="bg-white p-8 rounded-lg shadow-xl w-full transition-all duration-500 ease-in-out">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Login</h2>
+            <form action="#" method="post" class="space-y-5">
+                <div class="relative">
+                    <label for="login-username" class="sr-only">Username</label>
+                    <input type="text" id="login-username" name="username" placeholder="Username" required
+                           class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out placeholder-gray-500">
+                </div>
+                <div class="relative">
+                    <label for="login-password" class="sr-only">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="Password" required
+                           class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out placeholder-gray-500">
+                </div>
+                <button type="submit"
+                        class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 ease-in-out font-semibold text-lg shadow-md">
+                    Login
+                </button>
+                <div class="text-center text-gray-600 mt-4">
+                    Don't have an account? <a href="#" id="show-register" class="text-blue-600 hover:underline font-medium">Sign up</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="register-form" class="bg-white p-8 rounded-lg shadow-xl w-full hidden transition-all duration-500 ease-in-out">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Register</h2>
+            <form action="#" method="post" class="space-y-5">
+                <div class="relative">
+                    <label for="register-email" class="sr-only">Email</label>
+                    <input type="email" id="register-email" name="email" placeholder="Email" required
+                           class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out placeholder-gray-500">
+                </div>
+                <div class="relative">
+                    <label for="register-password" class="sr-only">Password</label>
+                    <input type="password" id="register-password" name="password" placeholder="Password" required
+                           class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out placeholder-gray-500">
+                </div>
+                <div class="relative">
+                    <label for="register-confirm-password" class="sr-only">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" name="confirm_password" placeholder="Confirm Password" required
+                           class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out placeholder-gray-500">
+                </div>
+                <button type="submit"
+                        class="w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-200 ease-in-out font-semibold text-lg shadow-md">
+                    Register
+                </button>
+                <div class="text-center text-gray-600 mt-4">
+                    Already have an account? <a href="#" id="show-login" class="text-green-600 hover:underline font-medium">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get references to the forms and links
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const showRegisterLink = document.getElementById('show-register');
+        const showLoginLink = document.getElementById('show-login');
+
+        // Function to show the registration form and hide the login form
+        showRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            loginForm.classList.add('hidden'); // Hide login form
+            registerForm.classList.remove('hidden'); // Show register form
+        });
+
+        // Function to show the login form and hide the registration form
+        showLoginLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            registerForm.classList.add('hidden'); // Hide register form
+            loginForm.classList.remove('hidden'); // Show login form
+        });
+    </script>
+</body>
+</html>
